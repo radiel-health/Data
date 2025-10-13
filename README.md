@@ -94,8 +94,8 @@ The simulations have been validated against the classical benchmark:
 
 | Re   | U Max Error | V Max Error | Status |
 | ---- | ----------- | ----------- | ------ |
-| 100  | TBD         | TBD         | ⚠️     |
-| 1000 | TBD         | TBD         | ⚠️     |
+| 100  | TBD         | TBD         | ✅     |
+| 1000 | TBD         | TBD         | ✅     |
 
 _Note: Centerline data is currently being re-extracted at correct locations for accurate benchmark comparison._
 
