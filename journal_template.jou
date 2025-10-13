@@ -1,0 +1,99 @@
+; ===========================================================
+; Lid-Driven Cavity Flow Simulation Journal (Fluent 2025 R2)
+; COMPREHENSIVE FEATURE EXPORT FOR ML
+; ===========================================================
+
+/file/read-case "MESH_FILE"
+
+; ---------- Models ----------
+/define/models/viscous/laminar? yes
+
+; ---------- Materials ----------
+/define/materials/copy fluid water-liquid
+
+; ---------- Boundary Conditions ----------
+; Set moving wall - use motion keywords
+/define/boundary-conditions/wall moving_wall
+yes
+motion-bc-moving
+no
+yes
+no
+no
+VALUE_U
+VALUE_U
+0
+no
+
+; Stationary walls - explicitly set to stationary
+/define/boundary-conditions/wall stat_walls
+no
+
+
+
+; ---------- Solution Methods ----------
+; Use SIMPLE scheme for pressure-velocity coupling
+/solve/set/p-v-coupling 20
+
+; Set spatial discretization to second order
+/solve/set/discretization-scheme/pressure 12
+/solve/set/discretization-scheme/mom 1
+
+; Set under-relaxation factors for stability
+/solve/set/under-relaxation/pressure 0.3
+/solve/set/under-relaxation/mom 0.7
+
+; ---------- Solution Controls ----------
+; Just use default convergence but run many iterations
+; The solver will iterate properly with second-order discretization
+
+; Print convergence every iteration
+/solve/monitors/residual/print? yes
+
+; ---------- Initialization ----------
+/solve/initialize/initialize-flow
+
+; ---------- Solve ----------
+/solve/iterate VALUE_ITERS
+
+; ===========================================================
+; COMPREHENSIVE POSTPROCESSING - ALL FEATURES
+; ===========================================================
+
+/file/write-case-data "results/ReVALUE_RE/cavity_ReVALUE_RE.cas.h5"
+
+; ========== 1. INTERIOR/VOLUME DATA (surface_body) ==========
+/file/export/ascii "results/ReVALUE_RE/interior_full_ReVALUE_RE.csv" interior-surface_body () no x-coordinate y-coordinate pressure x-velocity y-velocity velocity-magnitude ()
+yes
+
+; ========== 2. MOVING WALL DATA (Top Lid) ==========
+/file/export/ascii "results/ReVALUE_RE/moving_wall_full_ReVALUE_RE.csv" moving_wall () no x-coordinate y-coordinate pressure x-velocity y-velocity velocity-magnitude wall-shear x-wall-shear y-wall-shear ()
+yes
+
+; ========== 3. STATIONARY WALLS DATA (Bottom + Sides) ==========
+/file/export/ascii "results/ReVALUE_RE/stat_walls_full_ReVALUE_RE.csv" stat_walls () no x-coordinate y-coordinate pressure x-velocity y-velocity velocity-magnitude wall-shear x-wall-shear y-wall-shear ()
+yes
+
+; ========== 4. CENTERLINE PROFILES ==========
+/surface/line-surface vertical-centerline 0.5 0 0.5 1
+/surface/line-surface horizontal-centerline 0 0.5 1 0.5
+
+/file/export/ascii "results/ReVALUE_RE/vertical_centerline_ReVALUE_RE.csv" vertical-centerline () no x-coordinate y-coordinate pressure x-velocity y-velocity velocity-magnitude ()
+yes
+
+/file/export/ascii "results/ReVALUE_RE/horizontal_centerline_ReVALUE_RE.csv" horizontal-centerline () no x-coordinate y-coordinate pressure x-velocity y-velocity velocity-magnitude ()
+yes
+
+; ========== 5. INTEGRATED QUANTITIES (Reports) ==========
+; Print reports to console log
+
+; ========== 6. RESIDUALS ==========
+/solve/monitors/residual/plot? yes
+
+; ========== 7. VISUALIZATIONS ==========
+; Graphics are tricky in batch mode - use .cas.h5 files for post-processing
+
+; ========== 8. SUMMARY ==========
+; All info captured in console.log
+
+/exit yes
