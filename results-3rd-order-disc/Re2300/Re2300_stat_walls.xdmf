@@ -1,0 +1,41 @@
+<?xml version="1.0" ?>
+<Xdmf Version="3.0">
+  <Domain>
+    <Grid Name="Wall_Surface" GridType="Uniform">
+      <Topology TopologyType="Polyvertex" NodesPerElement="387"/>
+      <Geometry GeometryType="XYZ">
+        <DataItem Dimensions="387 3" NumberType="Float" Precision="8" Format="HDF">Re2300_stat_walls.h5:/coordinates</DataItem>
+      </Geometry>
+      <Attribute Name="wall_id" AttributeType="Scalar" Center="Node">
+        <DataItem Dimensions="387" NumberType="Int" Precision="4" Format="HDF">Re2300_stat_walls.h5:/wall_id</DataItem>
+      </Attribute>
+      <Attribute Name="wall_type" AttributeType="Scalar" Center="Node">
+        <DataItem Dimensions="387" NumberType="Int" Precision="4" Format="HDF">Re2300_stat_walls.h5:/wall_type</DataItem>
+      </Attribute>
+      <Attribute Name="velocity_x" AttributeType="Scalar" Center="Node">
+        <DataItem Dimensions="387" NumberType="Float" Precision="8" Format="HDF">Re2300_stat_walls.h5:/velocity_x</DataItem>
+      </Attribute>
+      <Attribute Name="velocity_y" AttributeType="Scalar" Center="Node">
+        <DataItem Dimensions="387" NumberType="Float" Precision="8" Format="HDF">Re2300_stat_walls.h5:/velocity_y</DataItem>
+      </Attribute>
+      <Attribute Name="velocity_magnitude" AttributeType="Scalar" Center="Node">
+        <DataItem Dimensions="387" NumberType="Float" Precision="8" Format="HDF">Re2300_stat_walls.h5:/velocity_magnitude</DataItem>
+      </Attribute>
+      <Attribute Name="wall_shear_x" AttributeType="Scalar" Center="Node">
+        <DataItem Dimensions="387" NumberType="Float" Precision="8" Format="HDF">Re2300_stat_walls.h5:/wall_shear_x</DataItem>
+      </Attribute>
+      <Attribute Name="wall_shear_y" AttributeType="Scalar" Center="Node">
+        <DataItem Dimensions="387" NumberType="Float" Precision="8" Format="HDF">Re2300_stat_walls.h5:/wall_shear_y</DataItem>
+      </Attribute>
+      <Attribute Name="wall_shear_magnitude" AttributeType="Scalar" Center="Node">
+        <DataItem Dimensions="387" NumberType="Float" Precision="8" Format="HDF">Re2300_stat_walls.h5:/wall_shear_magnitude</DataItem>
+      </Attribute>
+      <Attribute Name="pressure" AttributeType="Scalar" Center="Node">
+        <DataItem Dimensions="387" NumberType="Float" Precision="8" Format="HDF">Re2300_stat_walls.h5:/pressure</DataItem>
+      </Attribute>
+      <Attribute Name="cell_id" AttributeType="Scalar" Center="Node">
+        <DataItem Dimensions="387" NumberType="Int" Precision="4" Format="HDF">Re2300_stat_walls.h5:/cell_id</DataItem>
+      </Attribute>
+    </Grid>
+  </Domain>
+</Xdmf>

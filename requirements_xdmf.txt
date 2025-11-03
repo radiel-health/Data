@@ -1,0 +1,7 @@
+# Requirements for CSV to XDMF Converter
+numpy>=1.20.0
+pandas>=1.3.0
+h5py>=3.0.0
+
+# Note: xml.etree.ElementTree is part of Python standard library
+# pathlib, os, glob, and re are also part of standard library
