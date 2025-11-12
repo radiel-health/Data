@@ -1,0 +1,85 @@
+; ===========================================================
+; MAXIMUM ACCURACY LID-DRIVEN CAVITY SIMULATION
+; Geometry: 1m wide × 2m tall (aspect ratio 1:2)
+; Domain: x ∈ [0, 1], y ∈ [0, 2]
+; Coupled solver with second-order discretization
+; Optimized convergence criteria for low-velocity flows
+; ===========================================================
+/file/read-case "MESH_FILE"
+
+; ---------- Models ----------
+/define/models/viscous/laminar? yes
+
+; ---------- Materials ----------
+/define/materials/copy fluid water-liquid
+
+; ---------- Boundary Conditions ----------
+/define/boundary-conditions/wall moving_wall
+yes
+motion-bc-moving
+no
+yes
+no
+no
+VALUE_U
+VALUE_U
+0
+no
+
+/define/boundary-conditions/wall stationary_walls
+no
+
+; ---------- Solution Methods ----------
+; Use Coupled solver (enables second-order momentum)
+/solve/set/p-v-coupling 24
+
+; Spatial discretization - all second-order
+/solve/set/discretization-scheme/pressure 12
+/solve/set/discretization-scheme/mom 4
+
+; ---------- Solution Controls ----------
+; Tighter convergence criteria to prevent false convergence
+; and ensure accurate solutions across all Reynolds numbers
+/solve/monitors/residual/convergence-criteria 1e-6 1e-9 1e-9
+/solve/monitors/residual/print? yes
+
+; ---------- Initialization ----------
+/solve/initialize/hyb-initialization
+
+; ---------- Solve ----------
+/solve/iterate VALUE_ITERS
+
+; ===========================================================
+; POSTPROCESSING
+; ===========================================================
+/file/write-case-data "results/ReVALUE_RE/cavity_ReVALUE_RE.cas.h5"
+
+; ========== INTERIOR/VOLUME DATA ==========
+; Export all interior cell data
+/file/export/ascii "results/ReVALUE_RE/interior_full_ReVALUE_RE.csv" interior-surface_body () no x-coordinate y-coordinate pressure x-velocity y-velocity velocity-magnitude ()
+yes
+
+; ========== MOVING WALL DATA ==========
+/file/export/ascii "results/ReVALUE_RE/moving_wall_full_ReVALUE_RE.csv" moving_wall () no x-coordinate y-coordinate pressure x-velocity y-velocity velocity-magnitude wall-shear x-wall-shear y-wall-shear ()
+yes
+
+; ========== STATIONARY WALLS DATA ==========
+/file/export/ascii "results/ReVALUE_RE/stationary_walls_full_ReVALUE_RE.csv" stationary_walls () no x-coordinate y-coordinate pressure x-velocity y-velocity velocity-magnitude wall-shear x-wall-shear y-wall-shear ()
+yes
+
+; ========== CENTERLINE PROFILES ==========
+; Create centerline surfaces at geometric center
+; Vertical centerline: at x=0.5, from y=0 to y=2
+/surface/line-surface vertical-centerline 0.5 0 0.5 2
+
+; Horizontal centerline: at y=1.0 (middle), from x=0 to x=1  
+/surface/line-surface horizontal-centerline 0 1.0 1 1.0
+
+; Export centerline data
+/file/export/ascii "results/ReVALUE_RE/vertical_centerline_ReVALUE_RE.csv" vertical-centerline () no x-coordinate y-coordinate pressure x-velocity y-velocity velocity-magnitude ()
+yes
+
+/file/export/ascii "results/ReVALUE_RE/horizontal_centerline_ReVALUE_RE.csv" horizontal-centerline () no x-coordinate y-coordinate pressure x-velocity y-velocity velocity-magnitude ()
+yes
+
+/exit yes

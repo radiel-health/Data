@@ -1,0 +1,96 @@
+
+Opening input/output transcript to file "C:\Users\prana\lid-driven-fluid-flow-2d_files\user_files\data\AutomatedRuns\Data\\fluent-20251108-204713-13920.trn".
+Auto-Transcript Start Time:  20:47:13, 08 Nov 2025 Eastern Standard Time 
+
+              Welcome to ANSYS Fluent 2025 R2
+
+              Copyright 1987-2025 ANSYS, Inc. All Rights Reserved.
+              Unauthorized use, distribution or duplication is prohibited.
+              This product is subject to U.S. laws governing export and re-export.
+              For full Legal Notice, see documentation.
+
+Build Time: Jun 16 2025 10:50:27 EDT  Build Id: 10204  
+ 
+Connected License Server List:	1055@XPS-15-9520
+
+*********************************************
+Info: Your license enables 4-way parallel execution.
+For faster simulations, please start the application with the appropriate parallel options.
+*********************************************
+
+
+     --------------------------------------------------------------
+     This is an academic version of ANSYS FLUENT. Usage of this product
+     license is limited to the terms and conditions specified in your ANSYS
+     license form, additional terms section.
+     --------------------------------------------------------------
+Host spawning Node 0 on machine "XPS-15-9520" (win64).
+
+--------------------------------------------------------------------------------------
+ID    Hostname     Core  O.S.         PID    Vendor                                  
+--------------------------------------------------------------------------------------
+n0    XPS-15-9520  1/20  Windows-x64  4872   12th Gen Intel(R) Core(TM) i7-12700H    
+host  XPS-15-9520        Windows-x64  26292  12th Gen Intel(R) Core(TM) i7-12700H    
+
+MPI Option Selected: intel
+--------------------------------------------------------------------------------------
+
+Cleanup script file is C:\\Users\\prana\\lid-driven-fluid-flow-2d_files\\user_files\\data\\AutomatedRuns\\Data\\cleanup-fluent-XPS-15-9520-26292.bat
+
+Posting ANSYS Product Improvement Program startup data
+Done.
+
+> 
+XPS-15-9520 is already loaded (35.5757).                       Process affinity not being set.
+
+Reading "lidDrivenCavityFlowZeroedOut.msh"...
+
+Buffering for file scan...
+
+    2485 nodes, binary.
+     216 nodes, binary.
+    5076 2D interior faces, zone  1, binary.
+      36 2D wall faces, zone  5, binary.
+     180 2D wall faces, zone  6, binary.
+    2592 quadrilateral cells, zone  2, binary.
+
+Building...
+     mesh
+     materials,
+     interface,
+     domains,
+     zones,
+	stationary_walls
+	moving_wall
+	surface_body
+	interior-surface_body
+     parallel,
+Done.
+
+> 
+ Domain Extents:
+   x-coordinate: min (m) = 0.000000e+00, max (m) = 1.000000e+00
+   y-coordinate: min (m) = 0.000000e+00, max (m) = 2.000000e+00
+ Volume statistics:
+   minimum volume (m3): 7.701595e-04
+   maximum volume (m3): 7.725260e-04
+     total volume (m3): 2.000000e+00
+ Face area statistics:
+   minimum face area (m2): 2.774931e-02
+   maximum face area (m2): 2.781570e-02
+ Checking mesh............................
+ Done.
+
+> 
+
+non-fatal Error: invalid command [boundary]
+
+
+
+> 
+Posting ANSYS Product Improvement Program performance data 
+Done.
+Auto-Transcript Stop Time:  20:48:02, 08 Nov 2025 Eastern Standard Time 
+Total Transcript Time: 0 Minute 48 Second.
+
+Automatic transcript closed.

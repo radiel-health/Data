@@ -1,0 +1,4 @@
+/file/read-case "lidDrivenCavityFlowZeroedOut.msh"
+/mesh/check
+/boundary/list-zones
+/exit yes
