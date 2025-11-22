@@ -2,8 +2,8 @@
 set -e
 
 # ===================== PHYSICS =====================
-L=2.0                      # characteristic length (HEIGHT) [m]
-WIDTH=1.0                  # cavity width [m]
+L=1.0                      # characteristic length (HEIGHT) [m] - CHANGED
+WIDTH=2.0                  # cavity width [m] - CHANGED
 rho=998.2                  # density [kg/m^3] (water at ~20°C)
 mu=0.001003                # dynamic viscosity [Pa·s]
 nu=$(python3 -c "print(${mu}/${rho})")
@@ -40,15 +40,16 @@ for Re in "${RES[@]}"; do
   # Compute lid velocity U = Re * nu / L
   U=$(python3 -c "print(${Re} * ${nu} / ${L})")
   
-  # Adaptive iterations based on Reynolds number - INCREASED for convergence
+  # Adaptive iterations based on Reynolds number
+  # With relaxed convergence criteria (2e-5, 3e-8), sims should auto-stop earlier
   if [ $(python3 -c "print(1 if ${Re} <= 400 else 0)") -eq 1 ]; then
-    ITERS=5000     # Low Re: converges relatively quickly
+    ITERS=15000     # Low Re: converges relatively quickly
   elif [ $(python3 -c "print(1 if ${Re} <= 1000 else 0)") -eq 1 ]; then
-    ITERS=8000     # Medium Re: needs more iterations
+    ITERS=20000     # Medium Re: needs more iterations
   elif [ $(python3 -c "print(1 if ${Re} <= 2000 else 0)") -eq 1 ]; then
-    ITERS=12000    # Higher Re: needs many iterations
+    ITERS=30000    # Higher Re: needs many iterations
   else
-    ITERS=15000    # Very high Re: needs most iterations, may be unsteady
+    ITERS=40000    # Very high Re: needs most iterations, may be unsteady
   fi
   
   mkdir -p "results/Re${Re}"
@@ -58,22 +59,22 @@ for Re in "${RES[@]}"; do
       -e "s|VALUE_U|${U}|g" \
       -e "s|VALUE_RE|${Re}|g" \
       -e "s|VALUE_ITERS|${ITERS}|g" \
-      journal_template_aspect_ratios_2.jou > "2by1aspect_ratio_run_${Re}.jou"
+      journal_template_aspect_ratios_2.jou > "run_Re${Re}.jou"
   
   echo ""
   echo "=========================================="
   echo "Case ${CURRENT_CASE}/${TOTAL_CASES}: Re = ${Re}"
   echo "=========================================="
   echo "  Lid velocity (U): ${U} m/s"
-  echo "  Iterations:       ${ITERS}"
-  echo "  Journal file:     2by1aspect_ratio_run_${Re}.jou"
+  echo "  Iterations (max): ${ITERS}"
+  echo "  Journal file:     run_Re${Re}.jou"
   echo "  Output directory: results/Re${Re}/"
   echo "=========================================="
   
   start=$(date +%s)
   
   # Run Fluent simulation
-  fluent 2d -g -t1 -i "2by1aspect_ratio_run_${Re}.jou" | tee "results/Re${Re}/console.log"
+  fluent 2d -g -t1 -i "run_Re${Re}.jou" | tee "results/Re${Re}/console.log"
   
   end=$(date +%s)
   elapsed=$((end - start))
@@ -85,7 +86,7 @@ for Re in "${RES[@]}"; do
   cat > "results/Re${Re}/metadata.txt" << EOF
 Reynolds Number: ${Re}
 Lid Velocity: ${U} m/s
-Iterations: ${ITERS}
+Max Iterations: ${ITERS}
 Runtime: ${elapsed} seconds
 Density: ${rho} kg/m³
 Dynamic Viscosity: ${mu} Pa·s
@@ -122,6 +123,11 @@ Physical Properties:
 - Cavity dimensions: ${WIDTH}m (W) × ${L}m (H)
 - Characteristic length: ${L} m (height)
 - Mesh file: ${MESH}
+
+New Geometry:
+- 2m wide × 1m tall (horizontal aspect ratio 2:1)
+- Standard configuration: top wall moving, height = characteristic length
+- Relaxed convergence criteria for auto-stopping (2e-5, 3e-8, 3e-8)
 
 Outputs per case (in results/ReXXX/):
 - *.cas.h5                              Case/data file

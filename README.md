@@ -4,9 +4,12 @@ Full Database for Radiel Health's ML model inputs...
 
 # Data Avaliable Here...
 
-1. Lid-Driven Cavity Flow (First Order Descritized) 
+1. Lid-Driven Cavity Flow (First Order Descritized)
    For Radiel's preliminary model to test on the age-old problem, from Re=100 to 3200 (just until it gets turbulent).
 2. Lid-Driven Cavity Flow (Third Order Descritized)
+   2a. 1x1 Aspect Ratios
+   2b. 2x1 Aspect Ratios
+   2c. 1x2 Aspect Ratios
 
 # Lid-Driven Cavity Flow CFD Simulation
 
@@ -153,3 +156,5 @@ pip install pandas numpy matplotlib scipy
 ## Contact
 
 Rishabh Sharma r342shar@uwaterloo.ca (DaGravyGod)
+
+Note for myself: must export PATH="$PATH:/C/Program Files/ANSYS Inc/v252/fluent/ntbin/win64" every time in bash terminal!

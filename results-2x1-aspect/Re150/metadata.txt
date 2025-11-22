@@ -1,0 +1,11 @@
+Reynolds Number: 150
+Lid Velocity: 0.00015072129833700658 m/s
+Max Iterations: 15000
+Runtime: 56 seconds
+Density: 998.2 kg/m³
+Dynamic Viscosity: 0.001003 Pa·s
+Kinematic Viscosity: 1.004808655580044e-06 m²/s
+Cavity Dimensions: 2.0m (W) × 1.0m (H)
+Characteristic Length: 1.0 m (height)
+Mesh File: lidDrivenCavity2by1.msh
+Date: Fri, Nov 14, 2025 11:43:03 PM

@@ -1,0 +1,31 @@
+Lid-Driven Cavity CFD Batch Simulation Summary
+==============================================
+Date: Sat, Nov 15, 2025 12:53:05 AM
+Total simulations: 64
+Reynolds numbers: 100 150 200 250 300 350 400 450 500 550 600 650 700 750 800 850 900 950 1000 1050 1100 1150 1200 1250 1300 1350 1400 1450 1500 1550 1600 1650 1700 1750 1800 1850 1900 1950 2000 2050 2100 2150 2200 2250 2300 2350 2400 2450 2500 2550 2600 2650 2700 2750 2800 2850 2900 2950 3000 3050 3100 3150 3200 3250
+
+Physical Properties:
+- Density: 998.2 kg/m³
+- Dynamic viscosity: 0.001003 Pa·s
+- Kinematic viscosity: 1.004808655580044e-06 m²/s
+- Cavity dimensions: 2.0m (W) × 1.0m (H)
+- Characteristic length: 1.0 m (height)
+- Mesh file: lidDrivenCavity2by1.msh
+
+New Geometry:
+- 2m wide × 1m tall (horizontal aspect ratio 2:1)
+- Standard configuration: top wall moving, height = characteristic length
+- Relaxed convergence criteria for auto-stopping (2e-5, 3e-8, 3e-8)
+
+Outputs per case (in results/ReXXX/):
+- *.cas.h5                              Case/data file
+- interior_full_ReXXX.csv              Full interior field data
+- moving_wall_full_ReXXX.csv           Moving wall data (incl. shear stress)
+- stationary_walls_full_ReXXX.csv      Stationary walls data
+- vertical_centerline_ReXXX.csv        Vertical centerline profile
+- horizontal_centerline_ReXXX.csv      Horizontal centerline profile
+- console.log                          Fluent console output
+- runtime.txt                          Simulation runtime
+- metadata.txt                         Simulation metadata
+
+==============================================
