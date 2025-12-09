@@ -10,6 +10,15 @@ Full Database for Radiel Health's ML model inputs...
    2a. 1x1 Aspect Ratios
    2b. 2x1 Aspect Ratios
    2c. 1x2 Aspect Ratios
+   2d. 1.1x1 Aspect Ratio
+   2d. 1.2x1 Aspect Ratio
+   2d. 1.3x1 Aspect Ratio
+   2d. 1.4x1 Aspect Ratio
+   2d. 1.5x1 Aspect Ratio
+   2d. 1.6x1 Aspect Ratio
+   2d. 1.7x1 Aspect Ratio
+   2d. 1.8x1 Aspect Ratio
+   2d. 1.9x1 Aspect Ratio 
 
 # Lid-Driven Cavity Flow CFD Simulation
 
