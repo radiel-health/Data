@@ -1,0 +1,32 @@
+; ===========================================================
+; POST-PROCESSING VISUALIZATION
+; Loads completed case and generates contour plots
+; ===========================================================
+
+/file/read-case-data "results/AR_1.4x1/Re_2000/cavity_Re_2000.cas.h5"
+
+; ----- Velocity Magnitude Contour -----
+/display/contour velocity-magnitude
+/display/save-picture "results/AR_1.4x1/Re_2000/contour_velocity_magnitude.png"
+
+; ----- Pressure Contour -----
+/display/contour pressure
+/display/save-picture "results/AR_1.4x1/Re_2000/contour_pressure.png"
+
+; ----- X-Velocity Contour -----
+/display/contour x-velocity
+/display/save-picture "results/AR_1.4x1/Re_2000/contour_x_velocity.png"
+
+; ----- Y-Velocity Contour -----
+/display/contour y-velocity
+/display/save-picture "results/AR_1.4x1/Re_2000/contour_y_velocity.png"
+
+; ----- Vorticity Contour -----
+/display/contour vorticity
+/display/save-picture "results/AR_1.4x1/Re_2000/contour_vorticity.png"
+
+; ----- Stream Function (if available) -----
+/display/contour stream-function
+/display/save-picture "results/AR_1.4x1/Re_2000/contour_stream_function.png"
+
+/exit yes

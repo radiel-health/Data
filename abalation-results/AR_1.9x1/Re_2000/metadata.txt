@@ -1,0 +1,13 @@
+Aspect Ratio: 1.9:1
+Width: 1.9 m
+Height: 1.0 m
+Reynolds Number: 2000
+Lid Velocity: 0.002009617311160088 m/s
+Max Iterations: 35000
+Runtime: 39 seconds
+Density: 998.2 kg/m³
+Dynamic Viscosity: 0.001003 Pa·s
+Kinematic Viscosity: 1.004808655580044e-06 m²/s
+Characteristic Length: 1.0 m (height)
+Mesh File: lidDrivenCavity1.9x1.msh
+Date: Mon, Dec  8, 2025  6:25:31 AM

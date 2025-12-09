@@ -1,0 +1,89 @@
+; ===========================================================
+; MULTI-ASPECT RATIO LID-DRIVEN CAVITY SIMULATION
+; Geometry: 1.9m wide × 1.0m tall
+; Domain: x ∈ [0, 1.9], y ∈ [0, 1.0]
+; Coupled solver with second-order discretization
+; Optimized convergence criteria for low-velocity flows
+; ===========================================================
+
+/file/read-case "lidDrivenCavity1.9x1.msh"
+
+; ---------- Models ----------
+/define/models/viscous/laminar? yes
+
+; ---------- Materials ----------
+/define/materials/copy fluid water-liquid
+
+; ---------- Boundary Conditions ----------
+; Moving wall (top wall) with velocity 0.00030144259667401317
+/define/boundary-conditions/wall moving_wall
+yes
+motion-bc-moving
+no
+yes
+no
+no
+0.00030144259667401317
+0.00030144259667401317
+0
+no
+
+; Stationary walls (bottom, left, right)
+/define/boundary-conditions/wall stationary_walls
+no
+
+; ---------- Solution Methods ----------
+; Use Coupled solver (enables second-order momentum)
+/solve/set/p-v-coupling 24
+
+; Spatial discretization - all second-order
+/solve/set/discretization-scheme/pressure 12
+/solve/set/discretization-scheme/mom 4
+
+; ---------- Solution Controls ----------
+; Relaxed convergence criteria for practical convergence
+/solve/monitors/residual/convergence-criteria 5e-5 3e-8 3e-8
+/solve/monitors/residual/print? yes
+
+; ---------- Initialization ----------
+/solve/initialize/hyb-initialization
+
+; ---------- Solve ----------
+; Will stop early if convergence criteria are met
+/solve/iterate 8000
+
+; ===========================================================
+; POSTPROCESSING - DATA EXPORT
+; ===========================================================
+
+/file/write-case-data "results/AR_1.9x1/Re_300/cavity_Re_300.cas.h5" yes
+
+; ========== INTERIOR/VOLUME DATA ==========
+/file/export/ascii "results/AR_1.9x1/Re_300/interior_full_Re_300.csv" interior-surface_body () no x-coordinate y-coordinate pressure x-velocity y-velocity velocity-magnitude ()
+yes
+
+; ========== MOVING WALL DATA ==========
+/file/export/ascii "results/AR_1.9x1/Re_300/moving_wall_full_Re_300.csv" moving_wall () no x-coordinate y-coordinate pressure x-velocity y-velocity velocity-magnitude wall-shear x-wall-shear y-wall-shear ()
+yes
+
+; ========== STATIONARY WALLS DATA ==========
+/file/export/ascii "results/AR_1.9x1/Re_300/stationary_walls_full_Re_300.csv" stationary_walls () no x-coordinate y-coordinate pressure x-velocity y-velocity velocity-magnitude wall-shear x-wall-shear y-wall-shear ()
+yes
+
+; ========== CENTERLINE PROFILES ==========
+; Create centerline surfaces at geometric center
+; Vertical centerline: at x=WIDTH/2, from y=0 to y=HEIGHT
+/surface/line-surface vertical-centerline 0.95 0 0.95 1.0
+
+; Horizontal centerline: at y=HEIGHT/2, from x=0 to x=WIDTH  
+/surface/line-surface horizontal-centerline 0 0.5 1.9 0.5
+
+; Export centerline data
+/file/export/ascii "results/AR_1.9x1/Re_300/vertical_centerline_Re_300.csv" vertical-centerline () no x-coordinate y-coordinate pressure x-velocity y-velocity velocity-magnitude ()
+yes
+
+/file/export/ascii "results/AR_1.9x1/Re_300/horizontal_centerline_Re_300.csv" horizontal-centerline () no x-coordinate y-coordinate pressure x-velocity y-velocity velocity-magnitude ()
+yes
+
+
+/exit yes

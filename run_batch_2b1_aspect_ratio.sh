@@ -3,12 +3,12 @@ set -e
 
 # ===================== PHYSICS =====================
 L=1.0                      # characteristic length (HEIGHT) [m] - CHANGED
-WIDTH=2.0                  # cavity width [m] - CHANGED
+WIDTH=1.5                  # cavity width [m] - CHANGED
 rho=998.2                  # density [kg/m^3] (water at ~20°C)
 mu=0.001003                # dynamic viscosity [Pa·s]
 nu=$(python3 -c "print(${mu}/${rho})")
 
-MESH="lidDrivenCavity2by1.msh"   # .msh mesh file
+MESH="lidDrivenCavity1halfby1.msh"   # .msh mesh file
 
 echo "=========================================="
 echo "Lid-Driven Cavity CFD Batch Simulation"
