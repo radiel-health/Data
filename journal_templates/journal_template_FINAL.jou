@@ -42,7 +42,7 @@ no
 
 ; ---------- Solution Controls ----------
 ; Relaxed convergence criteria for practical convergence
-/solve/monitors/residual/convergence-criteria 5e-5 3e-8 3e-8
+/solve/monitors/residual/convergence-criteria 1e-6 1e-8 1e-8
 /solve/monitors/residual/print? yes
 
 ; ---------- Initialization ----------

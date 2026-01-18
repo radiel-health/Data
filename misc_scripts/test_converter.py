@@ -8,7 +8,7 @@ import os
 sys.path.append(r'c:\Repositories\Data')
 
 # Import our converter functions
-from csv_to_xdmf_converter import merge_surfaces_to_xdmf
+from Data.misc_scripts.csv_to_xdmf_converter import merge_surfaces_to_xdmf
 
 def test_single_folder():
     """Test conversion on a single Reynolds number folder"""

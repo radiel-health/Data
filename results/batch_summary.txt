@@ -1,0 +1,42 @@
+Trapezoid Lid-Driven Cavity Batch Simulation Summary
+====================================================
+Date: Sat, Jan 17, 2026 10:37:32 PM
+Total simulations: 21
+Reynolds numbers: 100 200 300 400 500 600 700 800 900 1000 1100 1200 1300 1400 1500 1600 1700 1800 1900 2000 2100
+
+Trapezoid Geometry:
+- Bottom width: 1.0 m (stationary)
+- Top width: 0.6 m (moving lid)
+- Height: 1.0 m
+- Configuration: Top wall moving horizontally
+
+Physical Properties:
+- Fluid: Water at ~20°C
+- Density: 998.2 kg/m³
+- Dynamic viscosity: 0.001003 Pa·s
+- Kinematic viscosity: 1.004808655580044e-06 m²/s
+- Characteristic length: 1.0 m (height)
+
+Mesh:
+- File: trapezoid.msh
+- Type: 2D
+
+Solver Settings:
+- Model: Laminar
+- Scheme: COUPLED
+- Pressure: Second Order
+- Momentum: Second Order Upwind
+- Convergence: 1e-6
+
+Outputs per case (in results/Re_XXX/):
+- cavity_Re_XXX.cas.h5                 Case/data file
+- interior_full_Re_XXX.csv             Full interior field data
+- moving_wall_full_Re_XXX.csv          Moving wall data (incl. shear stress)
+- stationary_walls_full_Re_XXX.csv     Stationary walls data
+- vertical_centerline_Re_XXX.csv       Vertical centerline profile
+- horizontal_centerline_Re_XXX.csv     Horizontal centerline profile
+- console.log                          Fluent console output
+- runtime.txt                          Simulation runtime
+- metadata.txt                         Simulation metadata
+
+====================================================
