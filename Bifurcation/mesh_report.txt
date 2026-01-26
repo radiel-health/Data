@@ -1,0 +1,85 @@
+
+Opening input/output transcript to file "C:\Users\prana\lid-driven-fluid-flow-2d_files\user_files\data\AutomatedRuns\Data\Bifurcation\\fluent-20260124-003551-24556.trn".
+Auto-Transcript Start Time:  00:35:51, 24 Jan 2026 Eastern Standard Time 
+
+              Welcome to ANSYS Fluent 2025 R2
+
+              Copyright 1987-2025 ANSYS, Inc. All Rights Reserved.
+              Unauthorized use, distribution or duplication is prohibited.
+              This product is subject to U.S. laws governing export and re-export.
+              For full Legal Notice, see documentation.
+
+Build Time: Jun 16 2025 10:42:46 EDT  Build Id: 10204  
+ 
+Connected License Server List:	1055@XPS-15-9520
+
+*********************************************
+Info: Your license enables 4-way parallel execution.
+For faster simulations, please start the application with the appropriate parallel options.
+*********************************************
+
+
+     --------------------------------------------------------------
+     This is an academic version of ANSYS FLUENT. Usage of this product
+     license is limited to the terms and conditions specified in your ANSYS
+     license form, additional terms section.
+     --------------------------------------------------------------
+Host spawning Node 0 on machine "XPS-15-9520" (win64).
+
+--------------------------------------------------------------------------------------
+ID    Hostname     Core  O.S.         PID    Vendor                                  
+--------------------------------------------------------------------------------------
+n0    XPS-15-9520  1/20  Windows-x64  1632   12th Gen Intel(R) Core(TM) i7-12700H    
+host  XPS-15-9520        Windows-x64  35276  12th Gen Intel(R) Core(TM) i7-12700H    
+
+MPI Option Selected: intel
+--------------------------------------------------------------------------------------
+
+Cleanup script file is C:\\Users\\prana\\lid-driven-fluid-flow-2d_files\\user_files\\data\\AutomatedRuns\\Data\\Bifurcation\\cleanup-fluent-XPS-15-9520-35276.bat
+
+Posting ANSYS Product Improvement Program startup data
+Done.
+
+Reading journal file check_dims.jou...
+
+> /file/read-case "bifurcation.msh"Note: Rank = 0: Process affinity not being set (6).
+
+Reading "bifurcation.msh"...
+
+Buffering for file scan...
+
+   88291 nodes, binary.
+   17633 nodes, binary.
+ 1140467 triangular interior faces, zone  1, binary.
+   33501 triangular wall faces, zone  5, binary.
+     591 triangular velocity-inlet faces, zone  6, binary.
+     579 triangular pressure-outlet faces, zone  7, binary.
+     591 triangular pressure-outlet faces, zone  8, binary.
+  579049 tetrahedral cells, zone  4, binary.
+
+Building...
+     mesh
+     materials,
+     interface,
+     domains,
+     zones,
+	outlet_2
+	outlet_1
+	inlet
+	wall-fluid_domain
+	fluid_domain
+	interior-fluid_domain
+     parallel,
+Done.
+
+
+> /report/surface-integrals/area Available surfaces: (wall-fluid_domain inlet outlet_1 outlet_2)
+"inlet"
+Select surface names/ids(2) [()] /exit 
+Warning: An error or interrupt occurred while reading the journal file.
+Some commands may not have been completed.
+
+
+> Done.
+
+> 
