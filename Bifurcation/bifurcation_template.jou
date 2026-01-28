@@ -78,7 +78,7 @@ no
 /solve/set/discretization-scheme/mom 4
 
 ; ---------- Solution Controls ----------
-/solve/monitors/residual/convergence-criteria 1e-1 1e-5 1e-5 1e-5
+/solve/monitors/residual/convergence-criteria 1e-1 1e-4 1e-4 1e-4
 /solve/monitors/residual/print? yes
 
 ; ---------- Initialization ----------
@@ -97,17 +97,21 @@ no
 
 ; Save case and data
 /file/write-case-data "results/MESH_NAME/ReVALUE_RE/bifurcation_ReVALUE_RE.cas.h5"
+yes
 
 ; Export interior field data
 /file/export/ascii "results/MESH_NAME/ReVALUE_RE/interior_full_ReVALUE_RE.csv" interior-data () no x-coordinate y-coordinate z-coordinate pressure x-velocity y-velocity z-velocity velocity-magnitude ()
 no
+yes
 
 ; Export wall data
 /file/export/ascii "results/MESH_NAME/ReVALUE_RE/wall_data_ReVALUE_RE.csv" wall-fluid_domain () no x-coordinate y-coordinate z-coordinate pressure wall-shear x-wall-shear y-wall-shear z-wall-shear ()
 no
+yes
 
 ; Export outlet data
 /file/export/ascii "results/MESH_NAME/ReVALUE_RE/outlets_ReVALUE_RE.csv" outlet_1 outlet_2 () no x-coordinate y-coordinate z-coordinate pressure velocity-magnitude ()
 no
+yes
 
 /exit yes
