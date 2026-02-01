@@ -78,7 +78,7 @@ no
 /solve/set/discretization-scheme/mom 4
 
 ; ---------- Solution Controls ----------
-/solve/monitors/residual/convergence-criteria 1e-1 1e-4 1e-4 1e-4
+/solve/monitors/residual/convergence-criteria 1e-3 1e-4 1e-4 1e-4
 /solve/monitors/residual/print? yes
 
 ; ---------- Initialization ----------
