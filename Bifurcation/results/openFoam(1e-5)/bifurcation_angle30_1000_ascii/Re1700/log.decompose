@@ -1,0 +1,200 @@
+/*---------------------------------------------------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  11
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+Build  : 11-e1fc8c682ae6
+Exec   : decomposePar
+Date   : Feb 08 2026
+Time   : 08:54:33
+Host   : "ip-172-31-18-192"
+PID    : 125805
+I/O    : uncollated
+Case   : /home/ubuntu/cases/bifurcation_angle30_1000_ascii/Re1700
+nProcs : 1
+sigFpe : Enabling floating point exception trapping (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 10)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+
+
+Decomposing mesh region0
+
+Create mesh
+
+Calculating distribution of cells
+Selecting decomposer scotch
+
+Finished decomposition in 1.77453 s
+
+Calculating original mesh data
+
+Distributing cells to processors
+
+Distributing faces to processors
+
+Distributing points to processors
+
+Constructing processor meshes
+
+Processor 0
+    Number of cells = 54582
+    Number of faces shared with processor 1 = 743
+    Number of faces shared with processor 2 = 754
+    Number of processor patches = 2
+    Number of processor faces = 1497
+    Number of boundary faces = 3103
+
+Processor 1
+    Number of cells = 54590
+    Number of faces shared with processor 0 = 743
+    Number of processor patches = 1
+    Number of processor faces = 743
+    Number of boundary faces = 3715
+
+Processor 2
+    Number of cells = 54592
+    Number of faces shared with processor 0 = 754
+    Number of faces shared with processor 3 = 225
+    Number of faces shared with processor 5 = 211
+    Number of faces shared with processor 15 = 761
+    Number of processor patches = 4
+    Number of processor faces = 1951
+    Number of boundary faces = 3163
+
+Processor 3
+    Number of cells = 55659
+    Number of faces shared with processor 2 = 225
+    Number of faces shared with processor 5 = 580
+    Number of faces shared with processor 13 = 788
+    Number of processor patches = 3
+    Number of processor faces = 1593
+    Number of boundary faces = 3301
+
+Processor 4
+    Number of cells = 55629
+    Number of faces shared with processor 5 = 747
+    Number of faces shared with processor 7 = 758
+    Number of processor patches = 2
+    Number of processor faces = 1505
+    Number of boundary faces = 3149
+
+Processor 5
+    Number of cells = 55653
+    Number of faces shared with processor 2 = 211
+    Number of faces shared with processor 3 = 580
+    Number of faces shared with processor 4 = 747
+    Number of processor patches = 3
+    Number of processor faces = 1538
+    Number of boundary faces = 3142
+
+Processor 6
+    Number of cells = 55449
+    Number of faces shared with processor 7 = 768
+    Number of processor patches = 1
+    Number of processor faces = 768
+    Number of boundary faces = 3720
+
+Processor 7
+    Number of cells = 55604
+    Number of faces shared with processor 4 = 758
+    Number of faces shared with processor 6 = 768
+    Number of processor patches = 2
+    Number of processor faces = 1526
+    Number of boundary faces = 3164
+
+Processor 8
+    Number of cells = 54589
+    Number of faces shared with processor 9 = 754
+    Number of faces shared with processor 11 = 763
+    Number of processor patches = 2
+    Number of processor faces = 1517
+    Number of boundary faces = 3191
+
+Processor 9
+    Number of cells = 54727
+    Number of faces shared with processor 8 = 754
+    Number of processor patches = 1
+    Number of processor faces = 754
+    Number of boundary faces = 3694
+
+Processor 10
+    Number of cells = 55120
+    Number of faces shared with processor 11 = 759
+    Number of faces shared with processor 12 = 770
+    Number of processor patches = 2
+    Number of processor faces = 1529
+    Number of boundary faces = 3181
+
+Processor 11
+    Number of cells = 54822
+    Number of faces shared with processor 8 = 763
+    Number of faces shared with processor 10 = 759
+    Number of processor patches = 2
+    Number of processor faces = 1522
+    Number of boundary faces = 3072
+
+Processor 12
+    Number of cells = 55445
+    Number of faces shared with processor 10 = 770
+    Number of faces shared with processor 13 = 790
+    Number of processor patches = 2
+    Number of processor faces = 1560
+    Number of boundary faces = 3200
+
+Processor 13
+    Number of cells = 55592
+    Number of faces shared with processor 3 = 788
+    Number of faces shared with processor 12 = 790
+    Number of faces shared with processor 14 = 773
+    Number of processor patches = 3
+    Number of processor faces = 2351
+    Number of boundary faces = 3603
+
+Processor 14
+    Number of cells = 55059
+    Number of faces shared with processor 13 = 773
+    Number of faces shared with processor 15 = 759
+    Number of processor patches = 2
+    Number of processor faces = 1532
+    Number of boundary faces = 3194
+
+Processor 15
+    Number of cells = 54811
+    Number of faces shared with processor 2 = 761
+    Number of faces shared with processor 14 = 759
+    Number of processor patches = 2
+    Number of processor faces = 1520
+    Number of boundary faces = 3110
+
+Number of processor faces = 11703
+Max number of cells = 55659 (0.97752298% above average 55120.188)
+Max number of processor patches = 4 (88.235294% above average 2.125)
+Max number of faces between processors = 2351 (60.710929% above average 1462.875)
+
+Time = 0s
+
+Processor 0: field transfer
+Processor 1: field transfer
+Processor 2: field transfer
+Processor 3: field transfer
+Processor 4: field transfer
+Processor 5: field transfer
+Processor 6: field transfer
+Processor 7: field transfer
+Processor 8: field transfer
+Processor 9: field transfer
+Processor 10: field transfer
+Processor 11: field transfer
+Processor 12: field transfer
+Processor 13: field transfer
+Processor 14: field transfer
+Processor 15: field transfer
+
+End
+
